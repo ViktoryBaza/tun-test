@@ -16,12 +16,12 @@ class Calculator {
   }
 
   handleKey(event) {
+    if (document.activeElement !== this.display) return;
     const validKeys = "0123456789+-*/.=cCEnterBackspace";
     if (!validKeys.includes(event.key)) {
       return;
     }
     event.preventDefault();
-
     if (event.key === "Enter" || event.key === "=") {
       this.calculate();
     } else if (event.key.toLowerCase() === "c") {
